@@ -1,20 +1,36 @@
 import{createServer} from 'node:http';
+import{unlink, wrteFile
+
+
+}from 'node:fs',
 
 
 //Define request handler
 
 
 
-//create HHTTP Server
-function requestHandler(req, res){
-res.writeHead(200,{'Content-Type': 'text/html'});
-res.end('<h1>We have an HTML server<h1/>')};
+//create HTTP Server
+const server =createServer ((req,res) => {
+console.log(req.url);
+if(req.url.includes('create')) {
 
-//listen for incoming request
-server.listen(3000, '127.0.0.1', function(){
-    console.log('server is running');
+//create file
+writeFile ('./abc.html', '<h1>Learning Node.js</h1>', (err) 
+=>{
+
+    console.log(err);
+
+//return response
+res.writeHead(200,{'Content-Type': 'text/html'});
+res.end('<h1>file added<h1/>');
 });
 
-//normal function vs arrow function
-function handleRequest() {}
-const handleRequest =() =>{}
+}else{
+//Delete
+unlink('./index.html' , () =>{
+
+//return response
+res.writeHead(200,{'Content-Type': 'text/html'});
+res.end('<h1>file added<h1/>');
+});
+}
