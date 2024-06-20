@@ -2,7 +2,7 @@ import{createServer} from 'node:http';
 import{unlink, wrteFile
 
 
-}from 'node:fs',
+}from 'node:fs';
 
 
 //Define request handler
@@ -15,7 +15,7 @@ console.log(req.url);
 if(req.url.includes('create')) {
 
 //create file
-writeFile ('./abc.html', '<h1>Learning Node.js</h1>', (err) 
+writeFile('./abc.html', '<h1>Learning Node.js</h1>', () 
 =>{
 
     console.log(err);
@@ -33,4 +33,3 @@ unlink('./index.html' , () =>{
 res.writeHead(200,{'Content-Type': 'text/html'});
 res.end('<h1>file added<h1/>');
 });
-}
