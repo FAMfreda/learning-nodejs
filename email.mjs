@@ -1,4 +1,5 @@
 import { program } from 'commander';
+import colors from 'colors'
 import { mailTransport } from './mailTransport.mjs';
 program
     .option('-s, --subject')
@@ -25,10 +26,10 @@ if (options.subject && options.to && options.message) {
         .then(console.log)
         .catch(console.log);
 
-    // console.log('message sent')
-
-
+    // console.log('message sent');
+    console.log('message sent'.green);
 } else {
+    console.log('some options are missing'.red);
 
-    console.log('some message missing')
-}
+
+} 
